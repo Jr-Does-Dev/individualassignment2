@@ -1,0 +1,521 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --formWidth: clamp(280px, 90vw, 400px);
+    --textColor: white;
+    --formPadding: 2rem;
+    --formMargin: 1rem;
+    --accentColor: hsl(7, 88%, 67%);
+    --accentHover: hsl(7, 71%, 60%);
+    --inputBg: hsla(245, 19%, 35%, 0.5);
+    --borderColor: hsl(245, 19%, 35%);
+    --mutedText: hsl(245, 15%, 58%);
+}
+
+body {
+    background: #0b0620 url("/assets/background-desktop.png") center / cover no-repeat;
+    background-attachment: fixed;
+    font-family: 'Inconsolata', monospace;
+    color: var(--textColor);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ---- Decorative Background Patterns ---- */
+
+.deco {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.decoCircleTopLeft {
+    top: -8%;
+    left: 3%;
+    width: 15vw;
+}
+
+.decoSquiggleTop {
+    top: 7%;
+    right: -1%;
+    width: 20vw;
+}
+
+.decoCircleMidRight {
+    top: 48%;
+    left: 65%;
+    width: 15vw;
+}
+
+.decoArcsBottom {
+    bottom: -2%;
+    left: -2%;
+    width: 55vw;
+}
+
+/* ---- Header ---- */
+
+#siteHeader {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+#landingMain,
+#formMain,
+#ticketMain {
+    position: relative;
+    z-index: 1;
+}
+
+#logoImg {
+    height: 28px;
+}
+
+/* ---- Landing Page ---- */
+
+#landingMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem 4rem;
+}
+
+#heroTitle {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    max-width: 600px;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+#heroSubtitle {
+    color: var(--mutedText);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+#eventMeta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.metaItem {
+    background-color: hsla(245, 19%, 35%, 0.4);
+    border: 1px solid var(--borderColor);
+    border-radius: 100px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* ---- Shared Button ---- */
+
+.btn {
+    background-color: var(--accentColor);
+    color: hsl(248, 70%, 10%);
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 200ms ease, transform 150ms ease;
+}
+
+.btn:hover {
+    background-color: var(--accentHover);
+    transform: translateY(-2px);
+}
+
+/* ---- Form Page ---- */
+
+#formTitle {
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 800;
+    max-width: 500px;
+    margin: 0 auto 0.75rem;
+    line-height: 1.15;
+}
+
+#formSubtitle {
+    text-align: center;
+    color: var(--mutedText);
+    margin-bottom: 2rem;
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formLayout {
+    margin: var(--formMargin);
+    color: var(--textColor);
+    width: var(--formWidth);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formLayout label {
+    font-weight: 500;
+}
+
+/* ---- Upload Zone ---- */
+
+#uploadZone {
+    display: flex;
+    border: 2px dashed var(--borderColor);
+    border-radius: 15px;
+    padding: var(--formPadding);
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background-color: hsla(245, 19%, 35%, 0.2);
+    transition: border-color 200ms ease, background-color 200ms ease;
+    min-height: 120px;
+    justify-content: center;
+}
+
+#uploadZone:hover {
+    border-color: var(--mutedText);
+    background-color: hsla(245, 19%, 35%, 0.35);
+}
+
+#uploadZone img {
+    width: 40px;
+}
+
+#uploadDefault {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--mutedText);
+}
+
+#uploadPreview {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#previewImg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#previewActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#previewActions button {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid var(--mutedText);
+    background: transparent;
+    color: var(--textColor);
+    cursor: pointer;
+}
+
+#previewActions button:hover {
+    border-color: white;
+}
+
+#fileInput {
+    display: none;
+}
+
+#uploadHint {
+    font-size: 0.8rem;
+    color: var(--mutedText);
+    overflow: hidden;
+}
+
+#uploadHint img {
+    float: left;
+    width: 14px;
+    margin-right: 0.3rem;
+}
+
+/* ---- Form Inputs ---- */
+
+.formInput {
+    background-color: var(--inputBg);
+    border: 1px solid var(--borderColor);
+    border-radius: 10px;
+    color: var(--textColor);
+    padding: 0.8rem 1rem;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 200ms ease;
+}
+
+.formInput::placeholder {
+    color: var(--mutedText);
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--accentColor);
+}
+
+.formInput.inputError {
+    border-color: var(--accentColor);
+}
+
+/* ---- Error Messages ---- */
+
+.errorMsg {
+    display: none;
+    color: var(--accentColor);
+    font-size: 0.8rem;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.errorMsg.show {
+    display: flex;
+}
+
+/* ---- Ticket Page ---- */
+
+#ticketMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem 4rem;
+}
+
+#congratsTitle {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    max-width: 600px;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+#ticketNameDisplay {
+    background: linear-gradient(90deg, var(--accentColor), white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#congratsSubtitle {
+    color: var(--mutedText);
+    max-width: 420px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+#ticketEmailDisplay {
+    color: var(--accentColor);
+}
+
+/* ---- Ticket Card ---- */
+
+#ticketCard {
+    position: relative;
+    width: min(90vw, 560px);
+    background: linear-gradient(135deg, hsla(245, 19%, 28%, 0.65), hsla(248, 70%, 12%, 0.75));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsla(245, 15%, 58%, 0.25);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 2px 52px;
+}
+
+/* Notch cutouts at the divider */
+#ticketCard::before,
+#ticketCard::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: hsl(248, 70%, 10%);
+    border-radius: 50%;
+    right: 39px;
+    z-index: 3;
+}
+
+#ticketCard::before { top: -14px; }
+#ticketCard::after  { bottom: -14px; }
+
+#ticketLeft {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+#ticketBrand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#ticketLogo {
+    width: 26px;
+    height: 26px;
+}
+
+#ticketBrandName {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#ticketDate {
+    font-size: 0.85rem;
+    color: var(--mutedText);
+    margin-top: -1rem;
+}
+
+#ticketUser {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#ticketAvatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+#ticketUserName {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+#ticketGithubRow {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--mutedText);
+}
+
+#ticketGithubRow img {
+    width: 16px;
+    opacity: 0.65;
+}
+
+/* Dashed divider */
+#ticketDivider {
+    background: repeating-linear-gradient(
+        to bottom,
+        hsla(245, 15%, 58%, 0.35) 0px,
+        hsla(245, 15%, 58%, 0.35) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+}
+
+#ticketRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ticketNumber {
+    font-size: 0.8rem;
+    color: var(--mutedText);
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* ---- Footer ---- */
+
+#siteFooter {
+    padding: 1rem;
+}
+
+#logoLink {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ---- Modern Selectors ---- */
+
+/* :is() — shared line-height for all headings */
+:is(h1, h2, h3) {
+    line-height: 1.15;
+}
+
+/* :where() — zero-specificity base font for all form elements */
+:where(input, button, select, textarea) {
+    font-family: 'Inconsolata', monospace;
+}
+
+/* :not() — inputs NOT in error state get a subtle hover border */
+.formInput:not(.inputError):hover {
+    border-color: var(--mutedText);
+}
+
+/* :has() — when a formLayout has a visible error, tint its label */
+.formLayout:has(.errorMsg.show) label {
+    color: var(--accentColor);
+}
+
+/* ---- Focus Visible (keyboard navigation) ---- */
+
+:focus-visible {
+    outline: 2px solid var(--accentColor);
+    outline-offset: 2px;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 600px) {
+    body {
+        background-image: url("/assets/background-mobile.png");
+    }
+
+    #ticketCard {
+        grid-template-columns: 1fr 2px 40px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+    body {
+        background-image: url("/assets/background-tablet.png");
+    }
+}
+
+@media (max-width: 768px) {
+    .decoSquiggleTop { width: 50vw; opacity: 0.6; }
+    .decoArcsBottom { width: 50vw; opacity: 0.6; }
+    .decoCircleMidRight { display: none; }
+}

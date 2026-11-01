@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Coding Conf - Your Ticket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/assets/favicon-32x32.png">
+</head>
+
+<body>
+
+    <img class="deco decoCircleTopLeft" src="/assets/pattern-circle.svg" alt="" aria-hidden="true">
+    <img class="deco decoSquiggleTop" src="/assets/pattern-squiggly-line-top.svg" alt="" aria-hidden="true">
+    <img class="deco decoCircleMidRight" src="/assets/pattern-circle.svg" alt="" aria-hidden="true">
+    <img class="deco decoArcsBottom" src="/assets/pattern-squiggly-line-bottom-desktop.svg" alt="" aria-hidden="true">
+
+    <header id="siteHeader">
+        <nav id="siteNav">
+            <a href="/HTML/index.html" id="logoLink" aria-label="Coding Conf Home">
+                <img id="logoImg" src="/assets/logo-full.svg" alt="Coding Conf">
+            </a>
+        </nav>
+    </header>
+
+    <main id="ticketMain">
+        <section id="congratsSection">
+
+            <h1 id="congratsTitle">Congrats, <span id="ticketNameDisplay"></span>! Your ticket is ready.</h1>
+            <p id="congratsSubtitle">
+                We've emailed your ticket to <span id="ticketEmailDisplay"></span> and will send updates in the run up to the event.
+            </p>
+
+        </section>
+
+        <article id="ticketCard" aria-label="Your conference ticket">
+
+            <div id="ticketLeft">
+                <div id="ticketBrand">
+                    <img id="ticketLogo" src="/assets/logo-mark.svg" alt="Coding Conf">
+                    <span id="ticketBrandName">Coding Conf</span>
+                </div>
+                <p id="ticketDate">Oct 26, 2026 / Papine, Kgn</p>
+
+                <div id="ticketUser">
+                    <img id="ticketAvatar" src="/assets/image-avatar.jpg" alt="Profile photo">
+                    <div id="ticketUserInfo">
+                        <p id="ticketUserName"></p>
+                        <div id="ticketGithubRow">
+                            <img src="/assets/icon-github.svg" alt="Github">
+                            <span id="ticketGithub"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ticketDivider" aria-hidden="true"></div>
+
+            <div id="ticketRight">
+                <span id="ticketNumber"></span>
+            </div>
+
+        </article>
+    </main>
+
+    <footer id="siteFooter"></footer>
+
+    <script src="/js/ticket.js"></script>
+
+</body>
+
+</html>

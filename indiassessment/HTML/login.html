@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Coding Conf</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/assets/favicon-32x32.png">
+</head>
+
+<body>
+
+    <img class="deco decoCircleTopLeft" src="/assets/pattern-circle.svg" alt="" aria-hidden="true">
+    <img class="deco decoSquiggleTop" src="/assets/pattern-squiggly-line-top.svg" alt="" aria-hidden="true">
+    <img class="deco decoCircleMidRight" src="/assets/pattern-circle.svg" alt="" aria-hidden="true">
+    <img class="deco decoArcsBottom" src="/assets/pattern-squiggly-line-bottom-desktop.svg" alt="" aria-hidden="true">
+
+    <header id="siteHeader">
+        <nav id="siteNav">
+            <a href="/HTML/index.html" id="logoLink" aria-label="Coding Conf Home">
+                <img id="logoImg" src="/assets/logo-full.svg" alt="Coding Conf">
+            </a>
+        </nav>
+    </header>
+
+    <main id="formMain">
+        <section id="formSection">
+
+            <h1 id="formTitle">Your Journey to Coding Conf 2026 Starts Here!</h1>
+            <p id="formSubtitle">Secure your spot at Jamaica's biggest coding conference.</p>
+
+            <form id="uploadForm">
+
+                <div class="formLayout">
+                    <label for="fileInput">Upload Avatar</label>
+                    <div id="uploadZone" tabindex="0" role="button" aria-label="Upload avatar image">
+
+                        <div id="uploadDefault">
+                            <img id="uploadImage" src="/assets/icon-upload.svg" alt="">
+                            <p>Drag and drop or click to upload</p>
+                        </div>
+
+                        <div id="uploadPreview">
+                            <img id="previewImg" src="" alt="Your avatar">
+                            <div id="previewActions">
+                                <button type="button" id="removeBtn">Remove image</button>
+                                <button type="button" id="changeBtn">Change image</button>
+                            </div>
+                        </div>
+
+                        <input type="file" id="fileInput" accept=".jpeg, .jpg, .png">
+                    </div>
+                    <span id="uploadHint"><img src="/assets/icon-info.svg" alt=""> Upload your photo (JPG or PNG, max size: 500KB)</span>
+                    <p class="errorMsg" id="avatarError" role="alert">Please upload a photo before continuing.</p>
+                </div>
+
+
+                <div class="formLayout">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="eg: John Brown" class="formInput" aria-describedby="nameError">
+                    <p class="errorMsg" id="nameError" role="alert">Please enter your full name.</p>
+                </div>
+
+                <div class="formLayout">
+                    <label for="email">Email Address</label>
+                    <input type="text" id="email" placeholder="example@email.com" class="formInput" aria-describedby="emailError">
+                    <p class="errorMsg" id="emailError" role="alert">Please enter a valid email address.</p>
+                </div>
+
+                <div class="formLayout">
+                    <label for="github">Github Username</label>
+                    <input type="text" id="github" placeholder="@yourusername" class="formInput" aria-describedby="githubError">
+                    <p class="errorMsg" id="githubError" role="alert">Github username must start with @.</p>
+                </div>
+
+                <div class="formLayout">
+                    <button type="submit" class="btn" id="submitBtn">Generate My Ticket</button>
+                </div>
+
+            </form>
+
+        </section>
+    </main>
+
+    <footer id="siteFooter"></footer>
+
+    <script src="/js/validation.js"></script>
+
+</body>
+
+</html>
